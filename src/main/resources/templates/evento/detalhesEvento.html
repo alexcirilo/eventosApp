@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+    <title>EventosApp</title>
+</head>
+
+<body>
+    <div class="container">
+        <h3><a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">home</i>Home</a></h3>
+        <h1 style="text-align: center;">Evento</h1>
+
+        <div th:each="eventos : ${eventos}">
+            <div class="row">
+                <p>Nome: <span th:text="${eventos.nome}"></span></p>
+                <p>Local: <span th:text="${eventos.local}"></span></p>
+                <p>Data: <span th:text="${eventos.data}"></span></p>
+                <p>Horário: <span th:text="${eventos.horario}"></span></p>
+            </div>
+            <form action="" method="post">
+                <label>Nome:
+                    <input type="text" value="" name="nomeConvidado">
+                </label>
+                <label>RG:
+                    <input type="text" value="" name="rg">
+                </label>
+                    <button type="submit" class="waves-effect waves-light btn"><i
+                            class="material-icons left">save</i>Adicionar</button>
+            </form>
+        </div>
+        <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+	<title>EventosApp</title>
+</head>
+
+<body>
+	<div class="container">
+
+		<ul>
+			<li><a class="btn" href="/eventos"><i class="material-icons left">home</i>Home</a></li>
+		</ul>
+
+		<h1 style="text-align: center;">Cadastro de Eventos:</h1>
+		<form method="post">
+			Nome: <input type="text" value="" name="nome">
+			<div class="row">
+				<div class="input-field col s6">
+					Local: <input type="text" value="" name="local">
+				</div>
+				<div class="input-field col s3">
+					Data: <input type="date" name="data" id="data">
+				</div>
+				<div class="input-field col s3">
+					Horário: <input type="time" name="horario" id="horario">
+				</div>
+			</div>
+			<button type="submit" class="btn"><i class="material-icons left">save</i>Salvar</button>
+		</form>
+		<script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	</div>
+</body>
+
+</html>
