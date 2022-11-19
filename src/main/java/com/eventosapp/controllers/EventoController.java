@@ -34,25 +34,25 @@ public class EventoController {
 	@RequestMapping("/eventos")
 	public ModelAndView listaEventos() {
 		ModelAndView mv = new ModelAndView("index");
-		Iterable<Evento> eventos =  er.findAll();
-		mv.addObject("eventos", eventos); //inserir o mesmo nome que foi colocado na view chamado pelo th
+		Iterable<Evento> evento =  er.findAll();
+		mv.addObject("evento", evento); //inserir o mesmo nome que foi colocado na view chamado pelo th
 		return mv;
 	}
 	
-	@RequestMapping(value= "/{id}", method=RequestMethod.GET)
+	@RequestMapping(value= "/evento_id={id}", method=RequestMethod.GET)
 	public ModelAndView detalhesEvento(@PathVariable("id") long id) {
-		Evento eventos = er.findById(id);
+		Evento evento = er.findById(id);
 		ModelAndView mv = new ModelAndView("evento/detalhesEvento");
-		mv.addObject("eventos", eventos);
+		mv.addObject("evento", evento);
 		return mv;
 	}
 	
-	@RequestMapping(value= "/{id}", method=RequestMethod.POST)
-	public String detalhesEvento(@PathVariable("id") long id, Convidado convidado) {
+	@RequestMapping(value= "/evento_id={id}", method=RequestMethod.POST)
+	public String detalhesEventoPost(@PathVariable("id") long id, Convidado convidado) {
 		Evento evento = er.findById(id);
 		convidado.setEvento(evento);
 		cr.save(convidado);
-		return "redirect:/{id}";
+		return "redirect:/evento_id={id}";
 	}
 	
 }

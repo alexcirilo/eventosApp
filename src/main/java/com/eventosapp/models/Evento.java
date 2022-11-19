@@ -3,6 +3,7 @@ package com.eventosapp.models;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,12 +16,16 @@ public class Evento implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)  //gerar automaticamente o ID no banco
+	@GeneratedValue(strategy = GenerationType.IDENTITY)  //gerar automaticamente o ID no banco
 	private long id;
 	
+	@Column(nullable = false)
 	private String nome;
+	@Column(nullable = false)
 	private String local;
+	@Column(nullable = false)
 	private String data;
+	@Column(nullable = false)
 	private String horario;
 	
 	@OneToMany

@@ -1,5 +1,6 @@
 package com.eventosapp.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -8,19 +9,14 @@ import javax.persistence.ManyToOne;
 public class Convidado {
 
 	@Id
-	private long id;
+	@Column(length = 12)
 	private String rg;
+	@Column(length=255)
 	private String nomeConvidado;
 	
 	@ManyToOne
 	private Evento evento;
 	
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
 	public String getRg() {
 		return rg;
 	}
