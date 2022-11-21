@@ -8,32 +8,66 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="style/style.css">
     <title>EventosApp</title>
 </head>
 
 <body>
     <div class="container">
-        <h3><a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">home</i>Home</a></h3>
-        <h1 style="text-align: center;">Evento</h1>
 
-        <div th:each="evento : ${evento}">
-            <div class="row">
-                <p>Nome: <span th:text="${evento.nome}"></span></p>
-                <p>Local: <span th:text="${evento.local}"></span></p>
-                <p>Data: <span th:text="${evento.data}"></span></p>
-                <p>Horário: <span th:text="${evento.horario}"></span></p>
-            </div>
+        <header>
+
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">Evento</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a class="btn" href="/eventos"><i class="material-icons left">home</i>Home</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+        </header>
+
+
+        <div class="row card-panel green lighten-5 detalhesEvento" >
+            <p>Nome: <span th:text="${evento.nome}"></span></p>
+            <p>Local: <span th:text="${evento.local}"></span></p>
+            <p>Data: <span th:text="${evento.data}"></span></p>
+            <p>Horário: <span th:text="${evento.horario}"></span></p>
+        </div>
+        <div th:each="evento : ${evento}" class="formConvidado">
+            
             <form action="" method="post">
                 <label>Nome:
-                    <input type="text" value="" name="nomeConvidado" required>
+                    <input type="text" value="" name="nomeConvidado">
                 </label>
                 <label>RG:
-                    <input type="text" value="" name="rg" required>
+                    <input type="text" value="" name="rg">
                 </label>
-                    <button type="submit" class="waves-effect waves-light btn"><i
-                            class="material-icons left">save</i>Adicionar</button>
+                <div style="text-align:center; padding-top: 1em;">
+                    <button type="submit" class="waves-effect waves-light btn"><i class="material-icons left">save</i>Adicionar</button>
+                </div>
             </form>
         </div>
+
+        <th:block th:include="mensagemValidacao"></th:block>
+
+    <br>
+        <table class="container tables">
+            <thead>
+                <tr>
+                    <td>Nome Convidado</td>
+                    <td>RG</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="convidado : ${convidados}">
+                    <td><span th:text="${convidado.nomeConvidado}"></span></td>
+                    <td><span th:text="${convidado.rg}"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
         <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     </div>

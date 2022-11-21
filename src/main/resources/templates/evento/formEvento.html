@@ -5,28 +5,39 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 	<!--Import materialize.css-->
 	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+	<link rel="stylesheet" href="style/style.css">
 	<title>EventosApp</title>
 </head>
 
 <body>
 	<div class="container">
+		<header>
 
-		<ul>
-			<li><a class="btn" href="/eventos"><i class="material-icons left">home</i>Home</a></li>
-		</ul>
+			<nav>
+				<div class="nav-wrapper">
+					<a href="#" class="brand-logo">Cadastro de Eventos</a>
+					<ul id="nav-mobile" class="right hide-on-med-and-down">
+						<li><a class="btn" href="/eventos"><i class="material-icons left">home</i>Home</a></li>
+					</ul>
+				</div>
+			</nav>
+	
+		</header>
 
-		<h1 style="text-align: center;">Cadastro de Eventos:</h1>
+		<th:block th:include="mensagemValidacao"></th:block>
+		<br>
+
 		<form method="post">
-			Nome: <input type="text" value="" name="nome" required>
+			Nome: <input type="text" value="" name="nome">
 			<div class="row">
 				<div class="input-field col s6">
-					Local: <input type="text" value="" name="local" required>
+					Local: <input type="text" value="" name="local">
 				</div>
 				<div class="input-field col s3">
-					Data: <input type="date" name="data" id="data" required>
+					Data: <input type="date" name="data" id="data">
 				</div>
 				<div class="input-field col s3">
-					Horário: <input type="time" name="horario" id="horario" required>
+					Horário: <input type="time" name="horario" id="horario">
 				</div>
 			</div>
 			<button type="submit" class="btn"><i class="material-icons left">save</i>Salvar</button>

@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class Evento implements Serializable{
 
@@ -19,12 +21,19 @@ public class Evento implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  //gerar automaticamente o ID no banco
 	private long id;
 	
+	@NotEmpty
 	@Column(nullable = false)
 	private String nome;
+	
+	@NotEmpty
 	@Column(nullable = false)
 	private String local;
+	
+	@NotEmpty
 	@Column(nullable = false)
 	private String data;
+	
+	@NotEmpty
 	@Column(nullable = false)
 	private String horario;
 	

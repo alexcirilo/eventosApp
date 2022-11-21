@@ -8,15 +8,28 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="style/style.css">
     <title>EventosApp</title>
 </head>
 
 <body>
     <div class="container">
-        <h3><a href="/cadastrarEvento" class="waves-effect waves-light btn"><i
-                    class="material-icons left">add_circle_outline</i>Cadastrar Evento</a></h3>
-        <h1 style="text-align: center;">Lista de Eventos</h1>
-        <table>
+    <header>
+
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Lista de Eventos</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/cadastrarEvento" class="waves-effect waves-light btn"><i
+                        class="material-icons left">add_circle_outline</i>Cadastrar Evento</a></li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+    
+        <h1 style="text-align: center;"></h1>
+        <table style="align-items: center;">
             <thead>
                 <tr>
                     <th>Nome</th>
@@ -28,7 +41,8 @@
             <tbody>
                 <tr th:each="evento : ${evento}">
 
-                    <td><a th:href="${(#mvc.url('EC#detalhesEvento').arg(0,evento.id)).build()}"><span th:text="${evento.nome}"></span></a></td>
+                    <td><a th:href="${(#mvc.url('EC#detalhesEvento').arg(0,evento.id)).build()}"><span
+                                th:text="${evento.nome}"></span></a></td>
                     <td th:text="${evento.local}"></td>
                     <td th:text="${evento.data}"></td>
                     <td th:text="${evento.horario}"></td>
